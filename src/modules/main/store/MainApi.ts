@@ -4,14 +4,13 @@ const $api = axios.create({
   baseURL: import.meta.env.VITE_API,
 });
 
-$api.interceptors.request.use((config) => {
-  config.headers.Authorization = `Bearer ${import.meta.env.VITE_OPEN_AI_KEY}`;
-  config.headers.model = "dall-e-3";
-  return config;
-});
-
 export const mainApi = {
-  getImage({ text }) {
+  getImage({ text, key }) {
+    $api.interceptors.request.use((config) => {
+      config.headers.Authorization = `Bearer ${key}`;
+      config.headers.model = "dall-e-3";
+      return config;
+    });
     return $api.post<any>("/images/generations", {
       // description of the picture
       prompt: text,

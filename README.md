@@ -14,7 +14,7 @@
 
 You can view project here: http://ai-pictures-generation.vercel.app/
 
-If OpenAI restricts my Open AI API key, the application will not be able to generate the image, sorry.
+To work you need your Open AI api key
 
 This project uses Open AI. This is a simple project that allows the user to generate any images he wants based on his request. This project will be useful to all companies that use images in their work. For example, you sell something online with a picture that the user uploads or selects. Now your user can play with AI and generate an image on their own and use it when designing your product.
 

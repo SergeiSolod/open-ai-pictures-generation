@@ -12,6 +12,7 @@ import Message from "src/kit/message/Message";
 const MainPage: FC = () => {
   const dispatch = useDispatch();
 
+  const [key, setKey] = useState(import.meta.env.VITE_OPEN_AI_KEY);
   const [text, setText] = useState("");
 
   const main = useSelector((state: RootState) => state.main);
@@ -53,6 +54,17 @@ const MainPage: FC = () => {
         <div className={styles.elements}>
           <div className={styles.elementInput}>
             <Input
+              id="keyText"
+              value={key}
+              label="Your OpenAI key"
+              length={200}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setKey(e);
+              }}
+            />
+          </div>
+          <div className={styles.elementInput}>
+            <Input
               id="imgText"
               value={text}
               label="Description of the picture"
@@ -66,7 +78,8 @@ const MainPage: FC = () => {
             <Button
               id="fetchImg"
               onClick={() => {
-                if (text.length > 0) dispatch(fetchImg({ text }));
+                if (key.length > 0 && text.length > 0)
+                  dispatch(fetchImg({ key, text }));
               }}
             >
               Generate
