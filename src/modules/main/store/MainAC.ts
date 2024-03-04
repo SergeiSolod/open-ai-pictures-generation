@@ -8,8 +8,8 @@ export const fetchImg = createAsyncThunk("fetchImg", async (data, thunkAPI) => {
     const response = await mainApi.getImage(data);
     thunkAPI.dispatch(setImage(response?.data?.data[0]?.url));
     let images = [...thunkAPI?.getState()?.main?.images];
-    images.push(response?.data?.data[0]?.url);
-    thunkAPI.dispatch(setImages(images.reverse()));
+    images.unshift(response?.data?.data[0]?.url);
+    thunkAPI.dispatch(setImages(images));
     thunkAPI.dispatch(setLoading(false));
   } catch (e: any) {
     thunkAPI.dispatch(setLoading(false));
