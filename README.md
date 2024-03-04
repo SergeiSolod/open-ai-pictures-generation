@@ -12,7 +12,7 @@
 
 ### About the project
 
-You can view project here: http://ai-pictures-generation.vercel.app/
+You can view project here: https://ai-pictures-generation.vercel.app/
 
 To work you need your Open AI api key
 
