@@ -66,7 +66,7 @@ const MainPage: FC = () => {
             <Button
               id="fetchImg"
               onClick={() => {
-                dispatch(fetchImg({ text }));
+                if (text.length > 0) dispatch(fetchImg({ text }));
               }}
             >
               Generate
