@@ -56,7 +56,7 @@ const MainPage: FC = () => {
             <Input
               id="keyText"
               value={key}
-              label="Your OpenAI key"
+              label="Your open ai key"
               length={200}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setKey(e);
